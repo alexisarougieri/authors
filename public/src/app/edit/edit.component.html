@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authors</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Favorite Authors</h1>
+        <a [routerLink]="['/home']">Home</a>
+        <p>Edit this author:</p>
+        {{ author.name }}<br>
+        <p *ngIf="errors">
+            {{ errors.name.message }}
+        </p>
+        <form (submit)="editSubmit(author._id, author)">
+            <input type="text" name="name" [(ngModel)]="author.name">
+            <input type="submit" value="Update Author">
+        </form>
+    </div>
+</body>
+</html>

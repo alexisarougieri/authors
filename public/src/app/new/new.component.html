@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authors</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Favorite Authors</h1>
+        <a [routerLink]="['/home']">Home</a>
+        <p>Add new author:</p>
+        <p *ngIf="errors">
+            {{ errors.name.message }}
+        </p>
+        <form (submit)="authorSubmit()">
+            Name:<input type="text" name="name" [(ngModel)]="newAuthor.name">
+            <button type="button" [routerLink]="['/home']">Cancel</button>
+            <input type="submit" value="Add Author">
+        </form>
+    </div>
+</body>
+</html>
